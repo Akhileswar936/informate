@@ -17,7 +17,7 @@ interface FeedData {
 }
 
 
-const API_BASE_URL = "http://localhost:9999";
+const API_BASE_URL = "https://informate-backend.onrender.com";
 const Home = () => {
   const [feeds, setFeeds] = useState<FeedData[]>([]);
   const navigate = useNavigate();
