@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-const API_BASE_URL = "http://localhost:9999";
+const API_BASE_URL = "https://informate-backend.onrender.com";
 const Updatepass = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
