@@ -3,8 +3,8 @@
 **Informate** is a full‑stack MERN web application designed to connect users across multiple professional and knowledge domains such as **IT, Education, Agriculture, Finance, Healthcare, and Industry**. The platform enables users to share information, discover domain‑specific content, connect with others, and manage personalized feeds in a clean, modern UI.
 
 
-Live Demo: [https://informate.onrender.com/](https://informate.onrender.com/)
-Repository: [https://github.com/Akhileswar936/informate](https://github.com/Akhileswar936/informate)
+*Live Demo: [https://informate.onrender.com/](https://informate.onrender.com/)
+*Repository: [https://github.com/Akhileswar936/informate](https://github.com/Akhileswar936/informate)
 
 ---
 
