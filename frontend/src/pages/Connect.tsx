@@ -16,7 +16,7 @@ interface Info
      bookmark?:[],
      connections:[]
 }
-const API_BASE_URL = "http://localhost:9999";
+const API_BASE_URL = "https://informate-backend.onrender.com";
 const Connect = () => {
   const [field,setField]=useState<string>('all');
   const [connects,setconnects]=useState<Info[]>([]);
