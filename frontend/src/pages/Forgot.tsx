@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-const API_BASE_URL = "http://localhost:9999";
+const API_BASE_URL = "https://informate-backend.onrender.com";
 const Forgot = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
