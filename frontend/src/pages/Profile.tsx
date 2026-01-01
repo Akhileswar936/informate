@@ -15,7 +15,7 @@ interface Info
      bookmark:[],
      connections:[]
 }
-const API_BASE_URL = "http://localhost:9999";
+const API_BASE_URL = "https://informate-backend.onrender.com";
 const Profile = () => {
  const [info, setInfo] = useState<Info>();
   const token = localStorage.getItem("token");
