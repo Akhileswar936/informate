@@ -100,6 +100,7 @@ React-Toastify is a popular React library used to display interactive, customiza
 * JWT Authentication
 * Multer (Image Uploads)
 * Brevo (Email Service)
+* Cloudinary
 
 ---
 ## 🚀 Deployment 
