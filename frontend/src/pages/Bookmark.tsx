@@ -84,7 +84,7 @@ const Bookmark = () => {
                       <div className="flex items-center justify-center gap-2">
                       
                               <div>
-                                  <img src={feed?.image || "/main.jpg"} alt="img"  className="w-[40px] h-[40px] rounded-[50%]"/>
+                                  <img src={feed?.image || "/main.webp"} alt="img"  className="w-[40px] h-[40px] rounded-[50%]"/>
                               </div>
                               <div>
                                   <h1 className="font-bold text-sm md:text-base">{feed.username}</h1>

@@ -80,7 +80,7 @@ const Connections = () => {
 
                        <div className="flex gap-3 items-center">
                         <img
-                            src={user?.image || "/main.jpg"}
+                            src={user?.image || "/main.webp"}
                           alt="profile"
                           className="w-12 h-12 rounded-full object-cover border-2 border-blue-400"
                         />

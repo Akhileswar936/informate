@@ -134,7 +134,7 @@ const fetchconnectionData = () => {
                 <div className="flex items-center justify-between gap-2">
                    <Link to={`/userfeeds/${feed.user_id}`}>
                         <div className="flex items-center  gap-2">
-                                <img   src={feed?.image || "/main.jpg"}
+                                <img   src={feed?.image || "/main.webp"}
                                 alt="img"
                                 className="w-10 h-10 rounded-full"
                                   />

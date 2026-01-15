@@ -41,7 +41,7 @@ const Profile = () => {
 
           <div className="flex flex-col items-center">
             <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-blue-400 shadow-sm">
-              <img src={info?.image || "/main.jpg"}
+              <img src={info?.image || "/main.webp"}
                 alt="profile"
                 className="w-full h-full object-cover"
               />

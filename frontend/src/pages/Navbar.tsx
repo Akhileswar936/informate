@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-[url('/main.jpg')] py-2 text-white capitalize">
+      <nav className="bg-[url('/main.webp')] py-2 text-white capitalize">
         <div className="flex justify-between items-center px-4 md:px-8">
           <h2 className="text-xl font-semibold">Informate</h2>
 
