@@ -16,10 +16,11 @@ app.use(express.json());
 connectDB();
 
 
-app.use(cors({ origin: 'https://informate-info.vercel.app', credentials: true }));
+app.use(cors({ origin: 'https://www.informate.co.in', credentials: true }));
 
 /* https://informate-info.vercel.app
   https://informate.onrender.com 
+  https://www.informate.co.in
 */
 
 app.use('/user', userrouter);
