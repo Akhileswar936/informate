@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema<Register>(
     username: String,
     field: String,
     password: String,
-    image: { type: String, default: "./main.webp" },
+    image: { type: String, default: "/main.webp" },
     code: { type: String, default: "" },
     bookmark: { type: [mongoose.Schema.Types.ObjectId],  ref:"User",default: [] },
     reqSent: { type: [mongoose.Schema.Types.ObjectId], ref:"User", default: [] },
