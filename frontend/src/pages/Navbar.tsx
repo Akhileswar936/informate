@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-[#416422] py-2 text-white capitalize">
+      <nav className="bg-[rgba(255,255,255,0.3)] py-2 text-white capitalize">
         <div className="flex justify-between items-center px-4 md:px-8">
           <h2 className="text-xl font-semibold">Informate</h2>
 
