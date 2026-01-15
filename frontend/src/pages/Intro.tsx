@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Intro = () => {
   return (
-    <div className="bg-[url('/main.jpg')]  min-h-screen flex flex-col justify-center items-center text-white text-center px-4">
+    <div className="bg-gradient-to-br from-blue-300 via-blue-400 to-indigo-400  min-h-screen flex flex-col justify-center items-center text-white text-center px-4">
       <h1 className="text-3xl md:text-5xl font-bold mb-4">Welcome to Informate</h1>
       <p className="text-lg md:text-2xl mb-6">Share your thoughts and experience</p>
       <div className="flex flex-col sm:flex-row gap-4">
