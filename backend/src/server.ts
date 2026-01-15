@@ -16,10 +16,11 @@ app.use(express.json());
 connectDB();
 
 
-app.use(cors({ origin: 'https://informate.onrender.com', credentials: true }));
+app.use(cors({ origin: 'https://informate-info.vercel.app', credentials: true }));
 
-
-
+/* https://informate-info.vercel.app
+  https://informate.onrender.com 
+*/
 
 app.use('/user', userrouter);
 app.use('/feed',feedrouter);
