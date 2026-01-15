@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white/40 backdrop-blur-md py-2 text-gray-800 capitalize">
+      <nav className="bg-violet-400 backdrop-blur-md py-2 text-gray-800 capitalize">
         <div className="flex justify-between items-center px-4 md:px-8">
           <h2 className="text-xl font-semibold">Informate</h2>
 
