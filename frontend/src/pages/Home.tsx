@@ -77,7 +77,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-blue-400 min-h-screen w-full p-4">
+      <div className="bg-teal-500 min-h-screen w-full p-4">
         <div className="text-center text-lg p-4 mb-6 rounded-md bg-white/30">
           <h1 className="font-semibold">Welcome to Informate</h1>
           <p>Share your thoughts and experience</p>
