@@ -22,7 +22,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-300 via-blue-400 to-indigo-400  min-h-screen flex items-center justify-center p-4">
+    <div className="bg-[url('/main.webp')]  min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
         <h1 className="text-center text-2xl font-bold mb-4">Login</h1>
         <form onSubmit={handlesubmit} className="flex flex-col gap-4">
