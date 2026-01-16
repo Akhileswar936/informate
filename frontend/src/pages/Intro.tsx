@@ -10,30 +10,25 @@ const Intro = () => {
   const [message, setMessage] = useState("");
   const [showButtons, setShowButtons] = useState(false);
 
-  const startedRef = useRef(false);
+  const titleIndexRef = useRef(0);
+  const messageIndexRef = useRef(0);
 
   useEffect(() => {
     axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
   }, []);
 
   useEffect(() => {
-    if (startedRef.current) return;
-    startedRef.current = true;
-
-    let titleIndex = 0;
-    let messageIndex = 0;
-
     const titleInterval = setInterval(() => {
-      if (titleIndex < titleText.length) {
-        setTitle(prev => prev + titleText.charAt(titleIndex));
-        titleIndex++;
+      if (titleIndexRef.current < titleText.length) {
+        setTitle(prev => prev + titleText[titleIndexRef.current]);
+        titleIndexRef.current++;
       } else {
         clearInterval(titleInterval);
 
         const messageInterval = setInterval(() => {
-          if (messageIndex < messageText.length) {
-            setMessage(prev => prev + messageText.charAt(messageIndex));
-            messageIndex++;
+          if (messageIndexRef.current < messageText.length) {
+            setMessage(prev => prev + messageText[messageIndexRef.current]);
+            messageIndexRef.current++;
           } else {
             clearInterval(messageInterval);
             setTimeout(() => setShowButtons(true), 500);
