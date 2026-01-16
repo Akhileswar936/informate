@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 const Intro = () => {
@@ -10,25 +10,29 @@ const Intro = () => {
   const [message, setMessage] = useState("");
   const [showButtons, setShowButtons] = useState(false);
 
-  // 🔥 Backend warm-up (cold start fix)
+  const startedRef = useRef(false);
+
   useEffect(() => {
     axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
   }, []);
 
   useEffect(() => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+
     let titleIndex = 0;
     let messageIndex = 0;
 
     const titleInterval = setInterval(() => {
       if (titleIndex < titleText.length) {
-        setTitle((prev) => prev + titleText.charAt(titleIndex));
+        setTitle(prev => prev + titleText.charAt(titleIndex));
         titleIndex++;
       } else {
         clearInterval(titleInterval);
 
         const messageInterval = setInterval(() => {
           if (messageIndex < messageText.length) {
-            setMessage((prev) => prev + messageText.charAt(messageIndex));
+            setMessage(prev => prev + messageText.charAt(messageIndex));
             messageIndex++;
           } else {
             clearInterval(messageInterval);
@@ -43,7 +47,6 @@ const Intro = () => {
 
   return (
     <div className="bg-gradient-to-br from-blue-300 via-blue-400 to-indigo-400 min-h-screen flex flex-col justify-center items-center text-white text-center px-4 space-y-6">
-
       <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">
         {title}
       </h1>
