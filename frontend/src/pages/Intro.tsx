@@ -29,7 +29,7 @@ const Intro = () => {
       if (messageIndex.current < message.length) {
         setMsg(message.slice(0, messageIndex.current + 1));
         messageIndex.current++;
-        setTimeout(typeMessage, 300);
+        setTimeout(typeMessage, 200);
       } else {
         setTimeout(() => setShowButtons(true), 600);
       }
