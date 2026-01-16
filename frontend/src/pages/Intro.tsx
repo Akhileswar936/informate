@@ -13,28 +13,32 @@ const Intro = () => {
   const titleIndexRef = useRef(0);
   const messageIndexRef = useRef(0);
 
+
   useEffect(() => {
     axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
   }, []);
 
   useEffect(() => {
     const titleInterval = setInterval(() => {
-      if (titleIndexRef.current < titleText.length) {
-        setTitle(prev => prev + titleText[titleIndexRef.current]);
-        titleIndexRef.current++;
-      } else {
+      if (titleIndexRef.current >= titleText.length) {
         clearInterval(titleInterval);
 
         const messageInterval = setInterval(() => {
-          if (messageIndexRef.current < messageText.length) {
-            setMessage(prev => prev + messageText[messageIndexRef.current]);
-            messageIndexRef.current++;
-          } else {
+          if (messageIndexRef.current >= messageText.length) {
             clearInterval(messageInterval);
             setTimeout(() => setShowButtons(true), 500);
+            return;
           }
+
+          setMessage(prev => prev + messageText[messageIndexRef.current]);
+          messageIndexRef.current++;
         }, 60);
+
+        return;
       }
+
+      setTitle(prev => prev + titleText[titleIndexRef.current]);
+      titleIndexRef.current++;
     }, 80);
 
     return () => clearInterval(titleInterval);
