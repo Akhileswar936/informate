@@ -9,6 +9,13 @@ dotenv.config();
 
 const app: Application = express();
 
+app.get('/welcome', (req: Request, res: Response) => {
+  res.status(200).json({
+    title: "Welcome to Informate",
+    message: "Share your thoughts and experience"
+  });
+});
+
 app.use(express.json());
 
 
