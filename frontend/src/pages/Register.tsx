@@ -27,7 +27,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="bg-[url('/main.webp')] min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[url('/main.webp')] bg-center bg-cover bg-no-repeat flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
         <h1 className="text-center text-2xl font-bold mb-4">Register</h1>
         <form onSubmit={handlesubmit} className="flex flex-col gap-4">

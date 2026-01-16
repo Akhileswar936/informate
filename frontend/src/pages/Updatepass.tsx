@@ -33,7 +33,7 @@ const Updatepass = () => {
   };
 
   return (
-    <div className="bg-[url('/main.webp')] w-full min-h-screen flex flex-col items-center justify-center p-6">
+    <div className="w-full min-h-screen bg-[url('/main.webp')] bg-center bg-cover bg-no-repeat flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-sm bg-white p-4 rounded shadow-md">
         <h1 className="text-center font-bold text-lg mb-3">Update Password</h1>
 
