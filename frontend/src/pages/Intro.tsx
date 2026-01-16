@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 const Intro = () => {
   const titleText = "Welcome to Informate";
   const messageText = "Share your thoughts and experience";
@@ -8,27 +9,29 @@ const Intro = () => {
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [showButtons, setShowButtons] = useState(false);
+
+  // 🔥 Backend warm-up (cold start fix)
   useEffect(() => {
-  axios.get("https://informate-backend.onrender.com/welcome");
-}, []);
+    axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
+  }, []);
+
   useEffect(() => {
     let titleIndex = 0;
     let messageIndex = 0;
 
     const titleInterval = setInterval(() => {
-      setTitle((prev) => prev + titleText[titleIndex]);
-      titleIndex++;
-
-      if (titleIndex === titleText.length) {
+      if (titleIndex < titleText.length) {
+        setTitle((prev) => prev + titleText.charAt(titleIndex));
+        titleIndex++;
+      } else {
         clearInterval(titleInterval);
 
         const messageInterval = setInterval(() => {
-          setMessage((prev) => prev + messageText[messageIndex]);
-          messageIndex++;
-
-          if (messageIndex === messageText.length) {
+          if (messageIndex < messageText.length) {
+            setMessage((prev) => prev + messageText.charAt(messageIndex));
+            messageIndex++;
+          } else {
             clearInterval(messageInterval);
-
             setTimeout(() => setShowButtons(true), 500);
           }
         }, 60);
@@ -43,7 +46,6 @@ const Intro = () => {
 
       <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">
         {title}
-        <span className="animate-pulse">|</span>
       </h1>
 
       <p className="text-lg md:text-2xl min-h-[2rem]">
@@ -64,7 +66,6 @@ const Intro = () => {
           </Link>
         </div>
       )}
-
     </div>
   );
 };
