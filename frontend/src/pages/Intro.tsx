@@ -1,19 +1,26 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 const Intro = () => {
   const title = "Welcome to Informate";
-  const message = "A freelancing platform for smart startup ideas, personalized knowledge delivery, and professional networking";
+  const message =
+    "A freelancing platform for smart startup ideas, personalized knowledge delivery, and professional networking";
+  const tagline = "Where ideas meet opportunity";
 
   const [info, setInfo] = useState("");
   const [msg, setMsg] = useState("");
+  const [tag, setTag] = useState("");
   const [showButtons, setShowButtons] = useState(false);
 
   const titleIndex = useRef(0);
   const messageIndex = useRef(0);
-    useEffect(() => {
+  const tagIndex = useRef(0);
+
+  useEffect(() => {
     axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
   }, []);
+
   useEffect(() => {
     const typeTitle = () => {
       if (titleIndex.current < title.length) {
@@ -21,7 +28,7 @@ const Intro = () => {
         titleIndex.current++;
         setTimeout(typeTitle, 300);
       } else {
-        setTimeout(typeMessage, 600);
+        setTimeout(typeMessage, 500);
       }
     };
 
@@ -29,9 +36,19 @@ const Intro = () => {
       if (messageIndex.current < message.length) {
         setMsg(message.slice(0, messageIndex.current + 1));
         messageIndex.current++;
-        setTimeout(typeMessage, 200);
+        setTimeout(typeMessage, 120);
       } else {
-        setTimeout(() => setShowButtons(true), 600);
+        setTimeout(typeTagline, 500);
+      }
+    };
+
+    const typeTagline = () => {
+      if (tagIndex.current < tagline.length) {
+        setTag(tagline.slice(0, tagIndex.current + 1));
+        tagIndex.current++;
+        setTimeout(typeTagline, 150);
+      } else {
+        setTimeout(() => setShowButtons(true), 500);
       }
     };
 
@@ -39,17 +56,21 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-blue-300 via-blue-400 to-indigo-400 min-h-screen flex flex-col justify-center items-center text-white text-center px-4">
-      <h1 className="text-3xl md:text-5xl font-bold mb-4 min-h-[3rem]">
+    <div className="bg-gradient-to-br from-blue-300 via-blue-400 to-indigo-400 min-h-screen flex flex-col justify-center items-center text-white text-center px-4 space-y-4">
+      <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">
         {info}
       </h1>
 
-      <p className="text-lg md:text-2xl mb-6 min-h-[2rem]">
+      <p className="text-lg md:text-2xl min-h-[2.5rem] max-w-3xl">
         {msg}
       </p>
 
+      <p className="text-base md:text-xl italic opacity-90 min-h-[2rem]">
+        {tag}
+      </p>
+
       {showButtons && (
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 mt-4">
           <Link to="/register">
             <button className="bg-gray-800 hover:bg-gray-700 transition text-white font-semibold py-2 px-6 rounded">
               Register
