@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 const Intro = () => {
   const title = "Welcome to Informate";
-  const message = "Share your thoughts and experience";
+  const message = "A freelancing platform for smart startup ideas, personalized knowledge delivery, and professional networking";
 
   const [info, setInfo] = useState("");
   const [msg, setMsg] = useState("");
@@ -29,7 +29,7 @@ const Intro = () => {
       if (messageIndex.current < message.length) {
         setMsg(message.slice(0, messageIndex.current + 1));
         messageIndex.current++;
-        setTimeout(typeMessage, 400);
+        setTimeout(typeMessage, 300);
       } else {
         setTimeout(() => setShowButtons(true), 600);
       }
