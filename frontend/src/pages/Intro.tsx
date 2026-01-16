@@ -56,7 +56,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="bg-[url('/main.webp')] min-h-screen flex flex-col justify-center items-center text-white text-center px-4 space-y-4">
+    <div className="bg-[url('/main.webp')] bg-center bg-cover min-h-screen flex flex-col justify-center items-center text-white text-center px-4 space-y-4">
       <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">
         {info}
       </h1>
