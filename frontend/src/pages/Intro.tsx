@@ -19,7 +19,7 @@ const Intro = () => {
       if (titleIndex.current < title.length) {
         setInfo(title.slice(0, titleIndex.current + 1));
         titleIndex.current++;
-        setTimeout(typeTitle, 400);
+        setTimeout(typeTitle, 300);
       } else {
         setTimeout(typeMessage, 600);
       }
