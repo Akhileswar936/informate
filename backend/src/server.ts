@@ -9,6 +9,16 @@ dotenv.config();
 
 const app: Application = express();
 
+
+app.use(cors({
+  origin: [
+    "https://www.informate.co.in",
+    "https://informate.onrender.com",
+    "https://informate-info.vercel.app"
+  ],
+  credentials: true
+}));
+
 app.get('/welcome', (req: Request, res: Response) => {
   res.status(200).json({
     title: "Welcome to Informate",
@@ -23,14 +33,7 @@ app.use(express.json());
 connectDB();
 
 
-app.use(cors({
-  origin: [
-    "https://www.informate.co.in",
-    "https://informate.onrender.com",
-    "https://informate-info.vercel.app"
-  ],
-  credentials: true
-}));
+
 
 
 /* https://informate-info.vercel.app
