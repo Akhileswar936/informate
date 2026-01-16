@@ -14,7 +14,7 @@ const Logout = () => {
   return (
     <>
       <div
-        className="bg-gradient-to-br from-blue-300 via-blue-400 to-indigo-400 w-full min-h-screen flex items-center justify-center  p-4 ">
+        className="bg-[url('/main.webp')] w-full min-h-screen flex items-center justify-center  p-4 ">
         <div className="bg-[rgba(255,255,255,0.3)] p-6 rounded-lg shadow-md text-center max-w-xs w-full md:max-w-sm shadow-md
                              hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
           <h2 className="text-lg md:text-xl font-semibold mb-4">
