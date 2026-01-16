@@ -104,7 +104,7 @@ const Userfeeds = () => {
         </div>
 
         <h2 className="mt-10 mb-4 text-xl font-bold text-gray-800">
-          User Feeds
+          User Feeds: {feeds.length}
         </h2>
 
         <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
