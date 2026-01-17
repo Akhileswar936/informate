@@ -24,7 +24,7 @@ const App = () => {
      <>
          <BrowserRouter>
                 <TokenExpirationTimer/>
-                <ToastContainer/>
+                <ToastContainer  autoClose={3000}/>
                <Routes>
                     <Route path="/" element={<Intro/>}/>
                     <Route path="/register" element={<Register/>} />
