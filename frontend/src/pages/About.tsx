@@ -41,7 +41,7 @@ const About = () => {
           <h1 className="text-3xl font-bold">Informate</h1>
           <h2 className="text-xl mt-1">Share your thoughts and experience</h2>
           <h2 className="lowercase text-sm mt-2">
-            For any query connect: ar9542550@gmail.com
+            For any query connect: akhileswar936@gmail.com
           </h2>
         </div>
 
