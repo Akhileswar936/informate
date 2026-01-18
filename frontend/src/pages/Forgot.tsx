@@ -34,7 +34,7 @@ const Forgot = () => {
             <span className="text-sm">Enter email</span>
             <input
               type="email"
-              className="border w-full outline-none px-2 py-1 rounded focus:ring-2 focus:ring-blue-400"
+              className="border-b w-full outline-none px-2 py-1 rounded"
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
