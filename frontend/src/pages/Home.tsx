@@ -90,7 +90,7 @@ const Home = () => {
           <div>
             <Link to="/create">
               <button className="bg-green-600 hover:bg-green-700 text-white rounded px-4 py-2 transition">
-                Create+
+                Create a post
               </button>
             </Link>
           </div>

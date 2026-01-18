@@ -54,7 +54,7 @@ const Create: React.FC = () => {
             type="submit"
             className="bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition"
           >
-              Create Post
+              Publish a Post
           </button>
         </form>
       </div>
