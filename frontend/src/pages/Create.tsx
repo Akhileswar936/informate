@@ -30,13 +30,13 @@ const Create: React.FC = () => {
   return (
     <div className="w-full min-h-screen bg-[url('/main.webp')] bg-center bg-cover bg-no-repeat flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-center text-2xl font-bold mb-4">Create a Post</h1>
+        <h1 className="text-center text-2xl font-bold mb-4">Create New Post</h1>
         <form onSubmit={handlesubmit} className="flex flex-col gap-4">
           <label className="flex flex-col text-sm font-medium">
             Enter a title
             <input
               type="text"
-              className="border rounded px-2 py-1 mt-1 outline-none focus:ring-2 focus:ring-blue-400"
+              className="border-b rounded px-2 py-1 mt-1 outline-none"
               maxLength={30}
               onChange={(e) => setIstitle(e.target.value)}
               
@@ -45,7 +45,7 @@ const Create: React.FC = () => {
           <label className="flex flex-col text-sm font-medium">
             Enter info
             <textarea
-              className="border rounded px-2 py-1 mt-1 outline-none resize-none h-32 focus:ring-2 focus:ring-blue-400"
+              className="border-b rounded px-2 py-1 mt-1 outline-none resize-none h-32 "
               onChange={(e) => setIsinfo(e.target.value)}
               
             ></textarea>
@@ -54,7 +54,7 @@ const Create: React.FC = () => {
             type="submit"
             className="bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition"
           >
-            Submit
+              Create Post
           </button>
         </form>
       </div>
