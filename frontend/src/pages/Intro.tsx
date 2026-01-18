@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Intro = () => {
-  const title = "Welcome to Informate";
+  const title = "Information Sharing Platform for Startup Ideas";
   const message =
     "A freelancing platform for smart startup ideas, personalized knowledge delivery, and professional networking";
   const tagline = "Where ideas meet opportunity";
@@ -21,7 +21,9 @@ const Intro = () => {
   useEffect(() => {
     if (started.current) return;
     started.current = true;
-      axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
+
+    axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
+
     const typeTitle = () => {
       if (titleIndex.current < title.length) {
         setInfo(title.slice(0, titleIndex.current + 1));
@@ -57,18 +59,9 @@ const Intro = () => {
 
   return (
     <div className="min-h-screen bg-[url('/main.webp')] bg-center bg-cover bg-no-repeat flex flex-col justify-center items-center text-white text-center px-4 space-y-4">
-      <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">
-        {info}
-      </h1>
-
-      <p className="text-lg md:text-2xl min-h-[2.5rem] max-w-3xl">
-        {msg}
-      </p>
-
-      <p className="text-base md:text-xl italic opacity-90 min-h-[2rem]">
-        {tag}
-      </p>
-
+      <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">{info}</h1>
+      <h2 className="text-xl md:text-2xl min-h-[2.5rem] font-medium">{msg}</h2>
+      <p className="text-base md:text-xl italic opacity-90 min-h-[2rem]">{tag}</p>
       {showButtons && (
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
           <Link to="/register">
