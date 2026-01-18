@@ -14,7 +14,12 @@ const validateToken = asyncHandler(
     const token = auth.split(" ")[1];
     jwt.verify(token, key, (err, decoded) => {
       if (err) {
-        res.status(401).json({ msg: "Invalid token" });
+        //res.status(401).json({ msg: "Invalid token" });
+        res.status(401).json({
+            msg: "You are not logged in. Please log in to continue.",
+            code: "AUTH_REQUIRED"
+          });
+
         return;
       }
       req.user = (decoded as JwtPayload).user;
