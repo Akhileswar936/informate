@@ -24,20 +24,6 @@ const Intro = () => {
 
     axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
 
-    const isBot =
-      typeof navigator !== "undefined" &&
-      /googlebot|bingbot|duckduckbot|yandex|baiduspider/i.test(
-        navigator.userAgent
-      );
-
-    if (isBot) {
-      setInfo(TITLE_TEXT);
-      setMsg(MESSAGE_TEXT);
-      setTag(TAGLINE_TEXT);
-      setShowButtons(true);
-      return;
-    }
-
     const typeTitle = () => {
       if (titleIndex.current < TITLE_TEXT.length) {
         setInfo(TITLE_TEXT.slice(0, titleIndex.current + 1));
