@@ -21,8 +21,13 @@ app.use(cors({
 
 app.get('/welcome', (req: Request, res: Response) => {
   res.status(200).json({
-    title: "Welcome to Informate",
-    message: "Share your thoughts and experience"
+    title: "Information Sharing Platform for Startup Ideas"
+  });
+});
+
+app.get('/info', (req: Request, res: Response) => {
+  res.status(200).json({
+    message: "A freelancing platform for smart startup ideas, personalized knowledge delivery, and professional networking"
   });
 });
 

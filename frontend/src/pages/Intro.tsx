@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -13,44 +13,41 @@ const Intro = () => {
   const [tag, setTag] = useState("");
   const [showButtons, setShowButtons] = useState(false);
 
-  const titleIndex = useRef(0);
-  const messageIndex = useRef(0);
-  const tagIndex = useRef(0);
-  const started = useRef(false);
-
   useEffect(() => {
-    if (started.current) return;
-    started.current = true;
-
     axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
+    axios.get("https://informate-backend.onrender.com/info").catch(() => {});
+
+    let titleIndex = 0;
+    let messageIndex = 0;
+    let taglineIndex = 0;
 
     const typeTitle = () => {
-      if (titleIndex.current < TITLE_TEXT.length) {
-        setInfo(TITLE_TEXT.slice(0, titleIndex.current + 1));
-        titleIndex.current++;
-        setTimeout(typeTitle, 100);
+      if (titleIndex < TITLE_TEXT.length) {
+        setInfo(TITLE_TEXT.slice(0, titleIndex + 1));
+        titleIndex++;
+        setTimeout(typeTitle, 30);
       } else {
-        setTimeout(typeMessage, 150);
+        setTimeout(typeMessage, 20);
       }
     };
 
     const typeMessage = () => {
-      if (messageIndex.current < MESSAGE_TEXT.length) {
-        setMsg(MESSAGE_TEXT.slice(0, messageIndex.current + 1));
-        messageIndex.current++;
-        setTimeout(typeMessage, 100);
+      if (messageIndex < MESSAGE_TEXT.length) {
+        setMsg(MESSAGE_TEXT.slice(0, messageIndex + 1));
+        messageIndex++;
+        setTimeout(typeMessage, 15);
       } else {
-        setTimeout(typeTagline, 150);
+        setTimeout(typeTagline, 20);
       }
     };
 
     const typeTagline = () => {
-      if (tagIndex.current < TAGLINE_TEXT.length) {
-        setTag(TAGLINE_TEXT.slice(0, tagIndex.current + 1));
-        tagIndex.current++;
-        setTimeout(typeTagline, 60);
+      if (taglineIndex < TAGLINE_TEXT.length) {
+        setTag(TAGLINE_TEXT.slice(0, taglineIndex + 1));
+        taglineIndex++;
+        setTimeout(typeTagline, 20);
       } else {
-        setTimeout(() => setShowButtons(true), 200);
+        setTimeout(() => setShowButtons(true), 200); 
       }
     };
 
@@ -60,22 +57,16 @@ const Intro = () => {
   return (
     <>
       <div className="sr-only">
-        <h1>Information Sharing Platform for Startup Ideas</h1>
-        <p>
-          Informate is a freelancing platform for smart startup ideas,
-          personalized knowledge delivery, and professional networking.
-          Where ideas meet opportunity.
-        </p>
+        <h1>{TITLE_TEXT}</h1>
+        <p>{MESSAGE_TEXT}</p>
+        <h2>{TAGLINE_TEXT}</h2>
       </div>
 
       <div className="min-h-screen bg-[url('/main.webp')] bg-center bg-cover bg-no-repeat flex flex-col justify-center items-center text-white text-center px-4 space-y-4">
         <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">{info}</h1>
-        <h2 className="text-xl md:text-2xl font-medium min-h-[2.5rem]">
-          {msg}
-        </h2>
-        <p className="text-base md:text-xl italic opacity-90 min-h-[2rem]">
-          {tag}
-        </p>
+        <h2 className="text-xl md:text-2xl font-medium min-h-[2.5rem]">{msg}</h2>
+        <p className="text-base md:text-xl italic opacity-90 min-h-[2rem]">{tag}</p>
+
         {showButtons && (
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <Link to="/register">
