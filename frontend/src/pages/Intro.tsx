@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Intro = () => {
-  const title = "Information Sharing Platform for Startup Ideas";
-  const message =
+  const TITLE_TEXT = "Information Sharing Platform for Startup Ideas";
+  const MESSAGE_TEXT =
     "A freelancing platform for smart startup ideas, personalized knowledge delivery, and professional networking";
-  const tagline = "Where ideas meet opportunity";
+  const TAGLINE_TEXT = "Where ideas meet opportunity";
 
   const [info, setInfo] = useState("");
   const [msg, setMsg] = useState("");
@@ -24,31 +24,45 @@ const Intro = () => {
 
     axios.get("https://informate-backend.onrender.com/welcome").catch(() => {});
 
+    const isBot =
+      typeof navigator !== "undefined" &&
+      /googlebot|bingbot|duckduckbot|yandex|baiduspider/i.test(
+        navigator.userAgent
+      );
+
+    if (isBot) {
+      setInfo(TITLE_TEXT);
+      setMsg(MESSAGE_TEXT);
+      setTag(TAGLINE_TEXT);
+      setShowButtons(true);
+      return;
+    }
+
     const typeTitle = () => {
-      if (titleIndex.current < title.length) {
-        setInfo(title.slice(0, titleIndex.current + 1));
+      if (titleIndex.current < TITLE_TEXT.length) {
+        setInfo(TITLE_TEXT.slice(0, titleIndex.current + 1));
         titleIndex.current++;
-        setTimeout(typeTitle, 100);
+        setTimeout(typeTitle, 80);
       } else {
-        setTimeout(typeMessage, 200);
+        setTimeout(typeMessage, 150);
       }
     };
 
     const typeMessage = () => {
-      if (messageIndex.current < message.length) {
-        setMsg(message.slice(0, messageIndex.current + 1));
+      if (messageIndex.current < MESSAGE_TEXT.length) {
+        setMsg(MESSAGE_TEXT.slice(0, messageIndex.current + 1));
         messageIndex.current++;
-        setTimeout(typeMessage, 100);
+        setTimeout(typeMessage, 40);
       } else {
-        setTimeout(typeTagline, 200);
+        setTimeout(typeTagline, 150);
       }
     };
 
     const typeTagline = () => {
-      if (tagIndex.current < tagline.length) {
-        setTag(tagline.slice(0, tagIndex.current + 1));
+      if (tagIndex.current < TAGLINE_TEXT.length) {
+        setTag(TAGLINE_TEXT.slice(0, tagIndex.current + 1));
         tagIndex.current++;
-        setTimeout(typeTagline, 100);
+        setTimeout(typeTagline, 60);
       } else {
         setTimeout(() => setShowButtons(true), 200);
       }
@@ -60,8 +74,10 @@ const Intro = () => {
   return (
     <div className="min-h-screen bg-[url('/main.webp')] bg-center bg-cover bg-no-repeat flex flex-col justify-center items-center text-white text-center px-4 space-y-4">
       <h1 className="text-3xl md:text-5xl font-bold min-h-[3rem]">{info}</h1>
-      <h2 className="text-xl md:text-2xl min-h-[2.5rem] font-medium">{msg}</h2>
-      <p className="text-base md:text-xl italic opacity-90 min-h-[2rem]">{tag}</p>
+      <h2 className="text-xl md:text-2xl font-medium min-h-[2.5rem]">{msg}</h2>
+      <p className="text-base md:text-xl italic opacity-90 min-h-[2rem]">
+        {tag}
+      </p>
       {showButtons && (
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
           <Link to="/register">
