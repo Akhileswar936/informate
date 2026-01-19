@@ -25,9 +25,9 @@ const Intro = () => {
       if (titleIndex < TITLE_TEXT.length) {
         setInfo(TITLE_TEXT.slice(0, titleIndex + 1));
         titleIndex++;
-        setTimeout(typeTitle, 30);
+        setTimeout(typeTitle, 100);
       } else {
-        setTimeout(typeMessage, 20);
+        setTimeout(typeMessage, 40);
       }
     };
 
@@ -35,9 +35,9 @@ const Intro = () => {
       if (messageIndex < MESSAGE_TEXT.length) {
         setMsg(MESSAGE_TEXT.slice(0, messageIndex + 1));
         messageIndex++;
-        setTimeout(typeMessage, 15);
+        setTimeout(typeMessage, 80);
       } else {
-        setTimeout(typeTagline, 20);
+        setTimeout(typeTagline, 40);
       }
     };
 
@@ -45,7 +45,7 @@ const Intro = () => {
       if (taglineIndex < TAGLINE_TEXT.length) {
         setTag(TAGLINE_TEXT.slice(0, taglineIndex + 1));
         taglineIndex++;
-        setTimeout(typeTagline, 20);
+        setTimeout(typeTagline, 60);
       } else {
         setTimeout(() => setShowButtons(true), 200); 
       }
