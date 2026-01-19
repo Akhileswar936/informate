@@ -28,7 +28,7 @@ const Intro = () => {
       if (titleIndex.current < TITLE_TEXT.length) {
         setInfo(TITLE_TEXT.slice(0, titleIndex.current + 1));
         titleIndex.current++;
-        setTimeout(typeTitle, 80);
+        setTimeout(typeTitle, 100);
       } else {
         setTimeout(typeMessage, 150);
       }
@@ -38,7 +38,7 @@ const Intro = () => {
       if (messageIndex.current < MESSAGE_TEXT.length) {
         setMsg(MESSAGE_TEXT.slice(0, messageIndex.current + 1));
         messageIndex.current++;
-        setTimeout(typeMessage, 40);
+        setTimeout(typeMessage, 100);
       } else {
         setTimeout(typeTagline, 150);
       }
