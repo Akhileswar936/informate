@@ -80,7 +80,7 @@ const Intro = () => {
             {isServerAwake ? (
               <>
                 <Link to="/register">
-                  <button className="bg-blue-600 hover:bg-blue-700 transition text-white font-semibold py-2 px-6 rounded shadow-lg">
+                  <button className="bg-gray-600 hover:bg-blue-700 transition text-white font-semibold py-2 px-6 rounded shadow-lg">
                     Register
                   </button>
                 </Link>
