@@ -1,12 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const API_BASE_URL = "https://informate-backend.onrender.com";
 const Login = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [isloading,setIsLoading]=useState<boolean>(true);
   const navigate = useNavigate();
 
   const handlesubmit = (e: React.FormEvent) => {
@@ -19,17 +18,9 @@ const Login = () => {
           setTimeout(() => navigate("/home"),1000);
         }
       })
-      .catch((err) => toast.error(err.response?.data.msg))
-      .finally(()=>{
-          setIsLoading(true);
-      })
+      .catch((err) => toast.error(err.response?.data.msg));
   };
-  useEffect(()=>{
-      if(isloading)
-      {
-        toast.info('Loading....')
-      }
-  },[isloading])
+
   return (
     <div className="min-h-screen bg-[url('/main.webp')] bg-center bg-cover bg-no-repeat flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
