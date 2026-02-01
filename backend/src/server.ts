@@ -54,7 +54,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ msg: err.message });
 });
 
-const port = Number(process.env.PORT) | 9999;
+const port = Number(process.env.PORT) | 9999 ;
 app.listen(port, () => {
   console.log(`server is running at ${port}`);
 });
