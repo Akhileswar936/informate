@@ -210,9 +210,7 @@ const Connect = () => {
                 className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 px-6 rounded-xl font-bold text-base shadow-xl hover:shadow-2xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 h-[52px] min-h-[52px]"
                 onClick={()=>requetsSent(user._id)}
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h6m-6 0h6m0 0v6m0-6L9 9l6 6-6 6" />
-                </svg>
+                
                 Connect
               </button>
             </div>
