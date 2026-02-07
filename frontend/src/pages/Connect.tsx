@@ -104,128 +104,144 @@ const Connect = () => {
   return (
   <>
     <Navbar />
-
-    <div className="w-full min-h-screen bg-gradient-to-br from-blue-400 to-blue-600 p-2 sm:p-4 lg:p-6">
-       <div className="mb-6 lg:mb-8">
-           <h1 className="font-semibold text-lg sm:text-xl md:text-2xl text-white mb-4 sm:mb-6">
-             Requests: {requetsUsers.length}
+    <div className="w-full min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-600 p-3 sm:p-5 lg:p-8">
+       <section className="mb-8 lg:mb-12">
+           <h1 className="font-black text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-6 lg:mb-8 drop-shadow-lg tracking-tight">
+             Incoming Requests ({requetsUsers.length})
            </h1>
-           {requetsUsers.length > 0 && (
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-               {requetsUsers.map((user)=>(
-                         <div
+           
+           {requetsUsers.length === 0 ? (
+             <div className="text-center py-12 px-4 sm:px-8">
+               <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center shadow-xl">
+                 <FaCheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-gray-400" />
+               </div>
+               <h3 className="text-2xl sm:text-3xl font-bold text-white/90 mb-3">No pending requests</h3>
+               <p className="text-lg text-blue-100 font-medium max-w-sm mx-auto">You'll see connection requests here when professionals want to connect</p>
+             </div>
+           ) : (
+           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+               {requetsUsers.map((user)=>
+                         <article
                         key={user._id}
-                        className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white rounded-2xl p-4 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                        className="group bg-gradient-to-br from-white to-blue-50/70 backdrop-blur-sm rounded-3xl p-5 sm:p-6 lg:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-2 active:scale-[0.98] transition-all duration-300 border border-white/50 hover:border-blue-200/50"
                         >
-                        <div className="flex gap-3 items-center mb-3 sm:mb-0">
-                            <img
-                            src={user?.image || "/main.webp"}
-                            alt="profile"
-                            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-3 border-blue-400"
-                            />
-
-                            <div>
-                            <h4 className="font-semibold text-gray-800 text-base sm:text-lg">
-                                {user.username}
-                            </h4>
-                            <p className="text-sm capitalize text-blue-600 font-medium">
-                                {user.field}
-                            </p>
+                          <div className="flex items-start gap-4 mb-5 sm:mb-6 pb-5 border-b border-blue-100/60">
+                            <div className="flex-shrink-0">
+                              <img
+                              src={user?.image || "/main.webp"}
+                              alt={user.username}
+                              className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-2xl object-cover border-4 border-white shadow-2xl ring-4 ring-blue-100/50 group-hover:ring-blue-200/70 transition-all"
+                              />
                             </div>
-                        </div>
 
-                           <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-end pt-2 sm:pt-0">
-                               <button 
-                                className="bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-xl font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center flex-1 sm:flex-none min-h-[44px]"
-                                onClick={()=>requestaccept(user._id)}
-                               >
-                                <FaCheckCircle className="w-5 h-5 mr-1 sm:mr-2" />
-                                Accept
-                              </button>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-black text-gray-900 text-lg sm:text-xl lg:text-2xl truncate mb-1 group-hover:text-blue-700 transition-colors">
+                                {user.username}
+                              </h4>
+                              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm sm:text-base font-bold rounded-full shadow-lg">
+                                <span>{user.field}</span>
+                              </div>
+                            </div>
+                          </div>
 
-                                <button 
-                                className="bg-red-500 hover:bg-red-600 text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-xl font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center flex-1 sm:flex-none min-h-[44px]"
-                                onClick={()=>requestreject(user._id)}
-                                >
-                                    <FaTimesCircle className="w-5 h-5 mr-1 sm:mr-2" />
-                                    Reject
-                                </button>
-                           </div>
-                </div>   
+                          <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                            <button 
+                             className="flex-1 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white py-4 px-6 rounded-2xl font-black text-base sm:text-lg shadow-2xl hover:shadow-3xl active:scale-[0.97] transition-all duration-300 flex items-center justify-center gap-3 h-[56px] min-h-[56px] border border-emerald-300/50 backdrop-blur-sm"
+                             onClick={()=>requestaccept(user._id)}
+                            >
+                             <FaCheckCircle className="w-6 h-6" />
+                             Accept Connection
+                           </button>
+
+                             <button 
+                             className="flex-1 bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white py-4 px-6 rounded-2xl font-black text-base sm:text-lg shadow-2xl hover:shadow-3xl active:scale-[0.97] transition-all duration-300 flex items-center justify-center gap-3 h-[56px] min-h-[56px] border border-rose-300/50 backdrop-blur-sm"
+                             onClick={()=>requestreject(user._id)}
+                             >
+                                 <FaTimesCircle className="w-6 h-6" />
+                                 Decline
+                             </button>
+                          </div>
+                 </article>   
                ))}
            </div>
            )}
-       </div>
+       </section>
 
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6">
-        Connect With Others
-      </h1>
+      <section>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-2 sm:mb-4 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text drop-shadow-2xl tracking-tight">
+          Connect With Professionals
+        </h1>
 
-      <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 p-4 sm:p-6 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl mb-6">
-        <h2 className="font-bold text-lg sm:text-xl md:text-2xl text-blue-800 flex-1">
-          Available Connections
-        </h2>
+        <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center gap-4 lg:gap-6 p-6 lg:p-8 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl lg:shadow-3xl mb-8 lg:mb-12 border border-blue-200/60">
+          <h2 className="font-black text-xl sm:text-2xl lg:text-3xl text-blue-900 tracking-wide flex-1">
+            Browse by Expertise
+          </h2>
 
-        <select
-          className="w-full sm:w-auto border-2 border-blue-300 rounded-xl px-4 py-3 text-base font-semibold outline-none bg-white shadow-lg hover:border-blue-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/30 transition-all"
-          onChange={(e) => setField(e.target.value)}
-        >
-          <option value="all">All Fields</option>
-          <option value="agriculture">Agriculture</option>
-          <option value="industry">Industry</option>
-          <option value="it">IT</option>
-          <option value="healthcare">Healthcare</option>
-          <option value="education">Education</option>
-          <option value="finance">Finance</option>
-        </select>
-      </div>
+          <select
+            className="w-full lg:w-auto border-3 border-blue-300/70 rounded-2xl px-6 py-4 lg:py-4 text-lg font-bold outline-none bg-gradient-to-r from-blue-50 to-indigo-50 shadow-xl hover:border-blue-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-400/40 hover:shadow-2xl transition-all duration-300"
+            onChange={(e) => setField(e.target.value)}
+          >
+            <option value="all">All Expertise Areas</option>
+            <option value="agriculture">Agriculture</option>
+            <option value="industry">Industry</option>
+            <option value="it">IT & Technology</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="education">Education</option>
+            <option value="finance">Finance</option>
+          </select>
+        </div>
 
-      {filterconnects.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-8">
-          {filterconnects.map((user) => (
-            <div
-              key={user._id}
-              className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col h-full"
-            >
-              <Link to={`/userfeeds/${user._id}`} className="flex-1 mb-4">
-                  <div className="flex gap-4 items-center">
-                    <img
-                      src={user?.image || "/main.webp"}
-                      alt="profile"
-                      className="w-16 h-16 rounded-full object-cover border-3 border-blue-400 flex-shrink-0"
-                    />
-
-                    <div className="min-w-0 flex-1">
-                      <h4 className="font-bold text-gray-800 text-lg truncate">
-                        {user.username}
-                      </h4>
-                      <p className="text-sm capitalize text-blue-600 font-semibold mt-1">
-                        {user.field}
-                      </p>
-                    </div>
-                  </div>
-              </Link>
-
-              <button
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 px-6 rounded-xl font-bold text-base shadow-xl hover:shadow-2xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 h-[52px] min-h-[52px]"
-                onClick={()=>requetsSent(user._id)}
+        {filterconnects.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6 pb-12">
+            {filterconnects.map((user) => (
+              <article
+                key={user._id}
+                className="group bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl hover:shadow-3xl hover:-translate-y-3 active:scale-[0.98] transition-all duration-500 border border-blue-100/70 hover:border-blue-300/80 overflow-hidden hover:bg-white/90"
               >
-                
-                Connect
-              </button>
+                <Link to={`/userfeeds/${user._id}`} className="block mb-6 lg:mb-8">
+                    <div className="flex items-start gap-4 group-hover:gap-5 transition-all">
+                      <div className="relative flex-shrink-0">
+                        <img
+                          src={user?.image || "/main.webp"}
+                          alt={user.username}
+                          className="w-20 h-20 lg:w-24 lg:h-24 rounded-3xl object-cover border-4 border-white shadow-2xl ring-8 ring-blue-50/80 group-hover:ring-blue-200/90 transition-all duration-500 group-hover:scale-110"
+                        />
+                      </div>
+
+                      <div className="flex-1 min-w-0 pt-2">
+                        <h4 className="font-black text-2xl lg:text-3xl text-gray-900 mb-2 truncate group-hover:text-blue-700 transition-colors">
+                          {user.username}
+                        </h4>
+                        <div className="inline-flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-lg rounded-2xl shadow-xl ring-2 ring-blue-200/50">
+                          <span className="tracking-wide">{user.field}</span>
+                        </div>
+                      </div>
+                    </div>
+                </Link>
+
+                <button
+                  className="w-full bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 hover:from-indigo-700 hover:via-blue-700 hover:to-cyan-700 text-white py-5 px-8 rounded-3xl font-black text-xl lg:text-2xl shadow-3xl hover:shadow-4xl active:scale-[0.97] transition-all duration-400 flex items-center justify-center gap-4 h-[68px] lg:h-[76px] min-h-[68px] border-2 border-indigo-300/60 backdrop-blur-xl ring-4 ring-indigo-200/50 hover:ring-indigo-300/70"
+                  onClick={()=>requetsSent(user._id)}
+                >
+                  Send Connection Request
+                </button>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-24 lg:py-32 px-6">
+            <div className="w-28 h-28 lg:w-36 lg:h-36 mx-auto mb-8 bg-gradient-to-br from-white/60 to-blue-100/60 rounded-3xl backdrop-blur-xl flex items-center justify-center shadow-2xl border-4 border-white/70">
+              <FaCheckCircle className="w-16 h-16 lg:w-20 lg:h-20 text-blue-300" />
             </div>
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-20 px-4">
-          <h1 className="text-3xl sm:text-4xl font-black text-white mb-4">
-            No Connections Available
-          </h1>
-          <p className="text-xl text-blue-100 font-semibold max-w-md mx-auto">
-            Try changing the field filter above
-          </p>
-        </div>
-      )}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 drop-shadow-2xl bg-gradient-to-r from-white to-blue-100 bg-clip-text">
+              No Professionals Found
+            </h1>
+            <p className="text-2xl lg:text-3xl text-blue-50/90 font-bold max-w-2xl mx-auto leading-relaxed">
+              Try switching the expertise filter above to discover connections in your field
+            </p>
+          </div>
+        )}
+      </section>
     </div>
   </>
   );
