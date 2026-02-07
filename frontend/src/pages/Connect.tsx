@@ -104,7 +104,7 @@ const Connect = () => {
                {requetsUsers.map((user)=>(
                          <div
                         key={user._id}
-                        className="flex flex-col md:flex-row md:justify-between items-center bg-white rounded-xl p-4 shadow-md
+                        className="flex justify-between items-center bg-white rounded-xl p-4 shadow-md
                                     hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                         >
                         <div className="flex gap-3 items-center">
@@ -126,11 +126,11 @@ const Connect = () => {
 
                            <div className="flex gap-2">
                                <button className="text-green-600 hover:scale-110 transition" onClick={()=>requestaccept(user._id)}>
-                               <FaCheckCircle />Accept
-                              </button>
+                               <FaCheckCircle />
+                           </button>
 
                                 <button className="text-red-600 hover:scale-110 transition" onClick={()=>requestreject(user._id)}>
-                                    <FaTimesCircle />Reject 
+                                    <FaTimesCircle />
                                 </button>
                            </div>
                 </div>   
@@ -166,7 +166,7 @@ const Connect = () => {
           {filterconnects.map((user) => (
             <div
               key={user._id}
-              className="flex flex-col md:flex-row md:justify-between items-center bg-white rounded-xl p-4 shadow-md
+              className="flex flex-col md:flex-row md:justify-between  bg-white rounded-xl p-4 shadow-md
                          hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
             >
               <Link to={`/userfeeds/${user._id}`}>
