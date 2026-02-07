@@ -115,9 +115,9 @@ const Connect = () => {
                             />
 
                             <div>
-                            <h1 className="font-semibold text-gray-800">
+                            <h4 className="font-semibold text-gray-800">
                                 {user.username}
-                            </h1>
+                            </h4>
                             <p className="text-sm capitalize text-blue-600">
                                 {user.field}
                             </p>
