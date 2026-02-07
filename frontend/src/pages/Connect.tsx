@@ -104,7 +104,9 @@ const Connect = () => {
   return (
   <>
     <Navbar />
+
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-600 p-3 sm:p-5 lg:p-8">
+       {/* REQUESTS SECTION */}
        <section className="mb-8 lg:mb-12">
            <h1 className="font-black text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-6 lg:mb-8 drop-shadow-lg tracking-tight">
              Incoming Requests ({requetsUsers.length})
@@ -120,7 +122,7 @@ const Connect = () => {
              </div>
            ) : (
            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
-               {requetsUsers.map((user)=>
+               {requetsUsers.map((user)=>(
                          <article
                         key={user._id}
                         className="group bg-gradient-to-br from-white to-blue-50/70 backdrop-blur-sm rounded-3xl p-5 sm:p-6 lg:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-2 active:scale-[0.98] transition-all duration-300 border border-white/50 hover:border-blue-200/50"
@@ -167,6 +169,7 @@ const Connect = () => {
            )}
        </section>
 
+      {/* CONNECTIONS SECTION */}
       <section>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-2 sm:mb-4 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text drop-shadow-2xl tracking-tight">
           Connect With Professionals
@@ -182,12 +185,12 @@ const Connect = () => {
             onChange={(e) => setField(e.target.value)}
           >
             <option value="all">All Expertise Areas</option>
-            <option value="agriculture">Agriculture</option>
-            <option value="industry">Industry</option>
-            <option value="it">IT & Technology</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="education">Education</option>
-            <option value="finance">Finance</option>
+            <option value="agriculture">🌾 Agriculture</option>
+            <option value="industry">🏭 Industry</option>
+            <option value="it">💻 IT & Technology</option>
+            <option value="healthcare">🏥 Healthcare</option>
+            <option value="education">📚 Education</option>
+            <option value="finance">💰 Finance</option>
           </select>
         </div>
 
@@ -206,6 +209,11 @@ const Connect = () => {
                           alt={user.username}
                           className="w-20 h-20 lg:w-24 lg:h-24 rounded-3xl object-cover border-4 border-white shadow-2xl ring-8 ring-blue-50/80 group-hover:ring-blue-200/90 transition-all duration-500 group-hover:scale-110"
                         />
+                        <div className="absolute -bottom-1 -right-1 w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl ring-4 ring-white border-4 border-white">
+                          <svg className="w-4 h-4 lg:w-5 lg:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                          </svg>
+                        </div>
                       </div>
 
                       <div className="flex-1 min-w-0 pt-2">
@@ -223,6 +231,9 @@ const Connect = () => {
                   className="w-full bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 hover:from-indigo-700 hover:via-blue-700 hover:to-cyan-700 text-white py-5 px-8 rounded-3xl font-black text-xl lg:text-2xl shadow-3xl hover:shadow-4xl active:scale-[0.97] transition-all duration-400 flex items-center justify-center gap-4 h-[68px] lg:h-[76px] min-h-[68px] border-2 border-indigo-300/60 backdrop-blur-xl ring-4 ring-indigo-200/50 hover:ring-indigo-300/70"
                   onClick={()=>requetsSent(user._id)}
                 >
+                  <svg className="w-7 h-7 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8h6m-6 0h6m0 0v6m0-6L9 9l6 6-6 6" />
+                  </svg>
                   Send Connection Request
                 </button>
               </article>
@@ -231,7 +242,9 @@ const Connect = () => {
         ) : (
           <div className="text-center py-24 lg:py-32 px-6">
             <div className="w-28 h-28 lg:w-36 lg:h-36 mx-auto mb-8 bg-gradient-to-br from-white/60 to-blue-100/60 rounded-3xl backdrop-blur-xl flex items-center justify-center shadow-2xl border-4 border-white/70">
-              <FaCheckCircle className="w-16 h-16 lg:w-20 lg:h-20 text-blue-300" />
+              <svg className="w-16 h-16 lg:w-20 lg:h-20 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 drop-shadow-2xl bg-gradient-to-r from-white to-blue-100 bg-clip-text">
               No Professionals Found
