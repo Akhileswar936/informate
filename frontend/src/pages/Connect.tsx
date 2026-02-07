@@ -126,11 +126,11 @@ const Connect = () => {
 
                            <div className="flex gap-2">
                                <button className="text-green-600 hover:scale-110 transition" onClick={()=>requestaccept(user._id)}>
-                               <FaCheckCircle />
+                               <FaCheckCircle />Accept
                               </button>
 
                                 <button className="text-red-600 hover:scale-110 transition" onClick={()=>requestreject(user._id)}>
-                                    <FaTimesCircle />
+                                    <FaTimesCircle />Reject 
                                 </button>
                            </div>
                 </div>   
