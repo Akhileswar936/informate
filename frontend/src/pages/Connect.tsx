@@ -104,7 +104,7 @@ const Connect = () => {
                {requetsUsers.map((user)=>(
                          <div
                         key={user._id}
-                        className="flex justify-between items-center bg-white rounded-xl p-4 shadow-md
+                        className="flex flex-col md:flex-row md:justify-between items-center bg-white rounded-xl p-4 shadow-md
                                     hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                         >
                         <div className="flex gap-3 items-center">
