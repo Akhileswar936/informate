@@ -192,7 +192,7 @@ const Connect = () => {
 
               <button
                 className="bg-blue-500 text-white px-4 py-1.5 rounded-lg
-                           hover:bg-blue-600 active:scale-40 transition-all" 
+                           hover:bg-blue-600 active:scale-40 transition-all mt-2" 
                            onClick={()=>requetsSent(user._id)}>
                 Connect
               </button>
