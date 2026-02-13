@@ -107,32 +107,6 @@ React-Toastify is a popular React library used to display interactive, customiza
 * Deployed frontend and backend on **Render** 
 * Production‑ready build setup 
 Live Demo: [https://informate.onrender.com/](https://informate.onrender.com/)
-
-## ⚙️ Installation & Setup
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/Akhileswar936/informate.git
-cd informate
-```
-
-### Backend Setup
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-### Frontend Setup
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
 ---
 
 ## 👨‍💻 Author
