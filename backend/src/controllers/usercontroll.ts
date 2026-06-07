@@ -339,7 +339,7 @@ const deleteconnection=asynchandler(async(req:Request,res:Response)=>{
   await User.findByIdAndUpdate(id,{$pull:{connections:new mongoose.Types.ObjectId(req_user_id)}},{new:true});
   await User.findByIdAndUpdate(req_user_id,{$pull:{connections:new mongoose.Types.ObjectId(id)}},{new:true});
   res.status(200).json({msg:'delete connection sucessfully'})
-})
+});
 
 
 export default { registeruser, loginuser,userinfo, forgetpassword, setpassword,updateprofile,connentsUsers,requestSent,
