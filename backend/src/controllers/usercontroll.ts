@@ -149,23 +149,53 @@ const forgetpassword = asynchandler(
     await User.findOneAndUpdate({ email }, { $set: { code } }, { new: true });
 
     const body: BrevoEmailRequest = {
-      sender: {
-        name: "info",
-        email: "akhileswar936@gmail.com"
-      },
-      to: [
-        {
-          email
-        }
-      ],
-      subject: "Password Reset Request",
-      htmlContent: `
-        <h2><span style="color: blue;">Informate</span></h2>
-        <p>You requested to reset your password.</p>
-        <p>Please use the OTP below to proceed:</p>
-        <h2>OTP: <strong>${code}</strong></h2>
-      `
-    };
+  sender: {
+    name: "Informate",
+    email: "akhileswar936@gmail.com"
+  },
+  to: [
+    {
+      email
+    }
+  ],
+  subject: "Informate Password Reset Request",
+  htmlContent: `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; line-height: 1.6;">
+      <h2 style="color: #2563eb;">Informate</h2>
+
+      <p>Hello,</p>
+
+      <p>
+        We received a request to reset the password for your Informate account.
+      </p>
+
+      <p>
+        Please use the One-Time Password (OTP) below to complete the password reset process:
+      </p>
+
+      <div style="background: #f4f4f4; padding: 15px; text-align: center; border-radius: 8px;">
+        <h1 style="margin: 0; color: #2563eb;">${code}</h1>
+      </div>
+
+      <p>
+        This OTP is valid for a limited time. Do not share it with anyone.
+      </p>
+
+      <p>
+        If you did not request a password reset, you can safely ignore this email.
+      </p>
+
+      <p>
+        Thank you for using Informate.
+      </p>
+
+      <p>
+        Regards,<br>
+        <strong>Informate Team</strong>
+      </p>
+    </div>
+  `
+};
 
     try {
       await axios.post(url, body, {
